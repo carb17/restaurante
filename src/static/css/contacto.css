@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.header-contacto {
+  background: transparent;
+  padding: 50px;
+  text-align: center;
+}
+
+.header-contacto__nav {
+  width: 30%;
+  background-color: #ffffe8;
+  color: #000;
+  border-radius: 50px;
+  padding: 1px;
+  margin: 0 auto;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.header-contacto__nav__links {
+  color: #000;
+  list-style-type: none;
+  padding: 0;
+}
+
+.header-contacto__nav__links__item {
+  display: inline;
+  margin: 0 15px;
+}
+
+.header-contacto__nav__links__item a {
+  text-decoration: none;
+  color: #000;
+  &:hover {
+    font-size: 1.1rem;
+  }
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Para centrar verticalmente */
+}
+
+form {
+  background-color: white; /* Fondo blanco para el formulario */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 20px; /* Espacio interno */
+  width: 400px; /* Ancho fijo para el formulario */
+  display: flex;
+  flex-direction: column; /* Para apilar elementos */
+}
+
+h2 {
+  text-align: center; /* Centrar el título */
+}
+
+p {
+  margin-bottom: 20px; /* Espacio debajo del párrafo */
+  text-align: left; /* Alinear a la izquierda */
+}
+
+.form-group {
+  margin-bottom: 15px; /* Espacio entre grupos de formulario */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px; /* Espacio debajo de las etiquetas */
+  font-weight: bold; /* Texto en negrita */
+}
+
+input,
+textarea {
+  width: 100%; /* Ancho completo */
+  padding: 10px; /* Espacio interno */
+  border: 1px solid #ccc; /* Borde gris */
+  border-radius: 4px; /* Bordes redondeados */
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff; /* Cambia el color del borde en el enfoque */
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar cursor a puntero */
+}
+
+button:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el cursor */
+}

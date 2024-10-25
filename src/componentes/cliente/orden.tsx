@@ -1,30 +1,38 @@
-import "../../static/css/cliente.css";
+import "../../static/css/orden.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Home } from "./home";
+import { Contacto } from "./contacto";
 
 export function Orden({
-  ordenSec = "unknown",
-  ordenComent = "unknown",
-  restTel = "unknown",
-  restDir = "unknown",
-  restCorreo = "unknown",
+  ordenSec = "",
+  ordenComent = "",
+  restTel = "",
+  restDir = "",
+  restCorreo = "",
 }) {
   const Button = ({ text = "unknown" }) => {
     return <button>{text}</button>;
   };
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/orden" element={<Orden />} />
+      <Route path="/contacto" element={<Contacto />} />
+    </Routes>
+  </BrowserRouter>;
   return (
-    <body>
+    <>
       <header className="header-orden">
         <nav className="header-orden__nav">
           <ul className="header-orden__nav__links">
             <li className="header-orden__nav__links__item">
-              {/* <Link to="/menu">Home</Link> */}
-              <a href="#"> Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="header-orden__nav__links__item">
-              {/* <Link to="/orden">Ordená ahora</Link> */}
-              <a href="#"> Ordená ahora</a>
+              <Link to="/orden">Ordená ahora</Link>
             </li>
             <li className="header-orden__nav__links__item">
-              <a href="#">Contáctanos</a>
+              <Link to="/contacto">Contactános</Link>{" "}
             </li>
           </ul>
         </nav>
@@ -55,6 +63,6 @@ export function Orden({
       <footer>
         <p>&copy; 2024 {ordenSec}. Todos los derechos reservados.</p>
       </footer>
-    </body>
+    </>
   );
 }

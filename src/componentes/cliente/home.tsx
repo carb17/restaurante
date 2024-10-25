@@ -1,32 +1,39 @@
-import "../../static/css/cliente.css";
-// import { Link } from "react-router-dom";
+import "../../static/css/home.css";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Orden } from "./orden";
+import { Contacto } from "./contacto";
 
 export function Home({
-  restNombre = "unknown",
-  restDesc = "unknown",
-  restComent = "unknown",
-  restTel = "unknown",
-  restDir = "unknown",
-  restCorreo = "unknown",
+  restNombre = "",
+  restDesc = "",
+  restComent = "",
+  restTel = "",
+  restDir = "",
+  restCorreo = "",
 }) {
   const Button = ({ text = "unknown" }) => {
     return <button>{text}</button>;
   };
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/orden" element={<Orden />} />
+      <Route path="/contacto" element={<Contacto />} />
+    </Routes>
+  </BrowserRouter>;
   return (
     <body>
       <header className="header-home">
         <nav className="header-home__nav">
           <ul className="header-home__nav__links">
             <li className="header-home__nav__links__item">
-              {/* <Link to="/menu">Home</Link> */}
-              <a href="#"> Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="header-home__nav__links__item">
-              {/* <Link to="/orden">Ordená ahora</Link> */}
-              <a href="#"> Orden online</a>
+              <Link to="/orden">Ordená ahora</Link>
             </li>
             <li className="header-home__nav__links__item">
-              <a href="#contact">Contáctanos</a>
+              <Link to="/contacto">Contactános</Link>{" "}
             </li>
           </ul>
         </nav>
@@ -41,6 +48,10 @@ export function Home({
         <section className="contenedor-home__propaganda">
           <h4>GANA TIEMPO. COMÉ SANO.</h4>
           <h4>ABIERTO TODOS LOS DIAS PARA LLEVAR Y ENTREGAR A DOMICILIO.</h4>
+        </section>
+
+        <section>
+          <h4>Menú</h4>
         </section>
 
         <section className="contenedor-home__pedido">
