@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import "../../static/css/home.css";
+import "../../static/css/cliente.css";
+import { Descripción, Galeria } from "../../Galeria/galeria";
 
 interface HomeProps {
   restNombre: string;
-  restDesc: string;
   restComent: string;
   restTel: string;
   restDir: string;
@@ -12,14 +12,19 @@ interface HomeProps {
 
 export function Home({
   restNombre = "",
-  restDesc = "",
   restComent = "",
   restTel = "",
   restDir = "",
   restCorreo = "",
 }: HomeProps) {
   const Button = ({ text = "unknown" }) => {
-    return <button>{text}</button>;
+    return (
+      <button>
+        <Link to="/orden" className="button-link">
+          {text}
+        </Link>
+      </button>
+    );
   };
 
   return (
@@ -40,7 +45,6 @@ export function Home({
       <main className="contenedor-home">
         <section className="contenedor-home__descripcion">
           <h2>{restNombre}</h2>
-          <h4>{restDesc}</h4>
         </section>
 
         <section className="contenedor-home__propaganda">
@@ -51,7 +55,11 @@ export function Home({
         </section>
 
         <section>
-          <h4>Menú</h4>
+          <Descripción />
+        </section>
+
+        <section className="galeria">
+          <Galeria />
         </section>
 
         <section className="contenedor-home__pedido">
@@ -63,13 +71,13 @@ export function Home({
         <section className="contenedor-home__info">
           <h2>{restNombre}</h2>
           <p>{restComent}</p>
-
           <ul>
             <li>Estamos abiertos: Lunes a Viernes 8am - 16pm</li>
             <li>{restDir}</li>
-            <li>
-              {restTel}, {restCorreo}
-            </li>
+          </ul>
+          <ul>
+            <li>{restTel}</li>
+            <li>{restCorreo}</li>
           </ul>
         </section>
       </main>

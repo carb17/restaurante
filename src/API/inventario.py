@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 import json
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 JSON_FILE = 'api.json'
 
@@ -11,8 +13,6 @@ def cargar_datos():
         with open(JSON_FILE, 'r') as file:
             return json.load(file)
     return {
-        "menu": [],
-        "orden": [],
         "inventario": []
     }
 
