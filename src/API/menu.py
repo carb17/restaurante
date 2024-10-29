@@ -6,13 +6,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-JSON_FILE = 'api.json'
-
 def cargar_datos():
     try:
-        if os.path.exists(JSON_FILE):
-            with open(JSON_FILE, 'r') as file:
-                return json.load(file)
+        with open('src/API/api.json', 'r') as file:
+            return json.load(file)
     except Exception as e:
         print(f"Error al cargar datos: {str(e)}") 
         return {"menu": []} 

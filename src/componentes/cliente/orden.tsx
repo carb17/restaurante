@@ -29,22 +29,30 @@ export function Orden({
   };
 
   const [menuItems, setMenuItems] = useState<MenuItem[]>([]);
-
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5001/middlend");
+        const response = await fetch("http://127.0.0.1:5001/middlend/menu");
         if (!response.ok) {
           setError("Error en la respuesta de la API");
-          throw new Error("Error en la respuesta de la api-menu");
+          throw new Error("Error en la respuesta de la API");
         }
+
+        // Intenta obtener el JSON y verifica su estructura
         const data = await response.json();
-        console.log("Menu actual:", Array.isArray(data) ? data : data.menu);
-        setMenuItems(data.menu);
+        console.log("Respuesta de la API:", data); // Muestra toda la respuesta de la API
+
+        // Asegúrate de que data sea un array
+        if (Array.isArray(data)) {
+          setMenuItems(data);
+        } else {
+          setError("La respuesta no es un array");
+        }
       } catch (error) {
         console.error("Error al cargar el menú:", error);
+        setError("No se pudo cargar el menú.");
       }
     };
 
@@ -76,11 +84,11 @@ export function Orden({
             {menuItems.length > 0 ? (
               menuItems.map((item) => (
                 <li key={item.id}>
-                  {item.nombre} - {item.descripcion} - ${item.precio}
-                </li>
+                  {item.nombre} - {item.descripcion} - {item.precio} $
+                </li> // Aquí asumiendo que quieres mostrar nombre y precio
               ))
             ) : (
-              <li>No hay elementos en el menú.</li>
+              <p>No hay elementos en el menú.</p>
             )}
           </ul>
           <Button text="Agregar" />
