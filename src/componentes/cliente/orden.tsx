@@ -40,11 +40,9 @@ export function Orden({
           throw new Error("Error en la respuesta de la API");
         }
 
-        // Intenta obtener el JSON y verifica su estructura
         const data = await response.json();
-        console.log("Respuesta de la API:", data); // Muestra toda la respuesta de la API
+        console.log("Respuesta de la API:", data);
 
-        // Asegúrate de que data sea un array
         if (Array.isArray(data)) {
           setMenuItems(data);
         } else {
