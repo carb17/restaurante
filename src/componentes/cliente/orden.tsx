@@ -83,7 +83,7 @@ export function Orden({
               menuItems.map((item) => (
                 <li key={item.id}>
                   {item.nombre} - {item.descripcion} - {item.precio} $
-                </li> // Aquí asumiendo que quieres mostrar nombre y precio
+                </li> 
               ))
             ) : (
               <p>No hay elementos en el menú.</p>
