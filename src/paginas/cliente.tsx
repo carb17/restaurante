@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "../componentes/cliente/home";
-import { Orden } from "../componentes/cliente/orden";
+import { Orden } from "../componentes/cliente/pedido";
 
 export function Cliente() {
   const restNombre = "Nombre del restaurante";
