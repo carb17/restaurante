@@ -9,7 +9,7 @@ CORS(app)
 def obtener_menu():
     if request.method == 'GET':
         try:
-            response = requests.get('http://127.0.0.1:5000/menu')
+            response = requests.get('https://apimenu-3.onrender.com/api/menu')
             print("Respuesta de la API de menú:", response.status_code, response.json())
             if response.status_code == 200:
                 return jsonify(response.json()), 200
@@ -20,7 +20,7 @@ def obtener_menu():
     elif request.method == 'POST':
         try:
             nuevo_menu = request.json
-            response = requests.post('http://127.0.0.1:5000/menu', json=nuevo_menu)
+            response = requests.post('https://apimenu-3.onrender.com/api/menu', json=nuevo_menu)
             if response.status_code == 201:
                 return jsonify(response.json()), 201
             else:
@@ -32,7 +32,7 @@ def obtener_menu():
 def manejar_pedidos():
     if request.method == 'GET':
         try:
-            response = requests.get('http://127.0.0.1:5000/pedido')  
+            response = requests.get('https://api-pedidos-zzu2.onrender.com/pedido')  
             print("Respuesta de la API de pedidos:", response.status_code, response.json())
             if response.status_code == 200:
                 return jsonify(response.json()), 200
@@ -44,7 +44,7 @@ def manejar_pedidos():
         try:
             pedido_data = request.json
             print("Datos recibidos del pedido:", pedido_data)
-            response = requests.post('http://127.0.0.1:5000/pedido', json=pedido_data)
+            response = requests.post('https://api-pedidos-zzu2.onrender.com/pedido', json=pedido_data)
             if response.status_code == 201:
                 return jsonify(response.json()), 201
             else:
